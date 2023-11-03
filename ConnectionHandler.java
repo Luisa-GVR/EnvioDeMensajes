@@ -71,7 +71,12 @@ public class ConnectionHandler implements Runnable {
 
                     if (recipient.equals(sender)) {
                         output.println("NO PUEDES ENVIARTE MENSAJES A TI MISMO");
-                    } else {
+                    }
+                    else if (!users.userExists(recipient)) {
+                        output.println("EL USUARIO " + recipient + " NO EXISTE");
+                    }
+
+                    else {
 
                         users.send(sender, recipient, message);
                         output.println("EL MENSAJE HA SIDO ENVIADO A " + recipient);
@@ -83,14 +88,13 @@ public class ConnectionHandler implements Runnable {
 
 
             else if (command.startsWith("DISCONNECT")) {
-                String userName = command.substring(command.indexOf(' ') + 1).trim();
-                users.disconnect(userName);
+                users.disconnect(username);
 
-                LOGGER.info("User " + userName + " SE HA DESCONECTADO");
+                LOGGER.info("User " + username + " SE HA DESCONECTADO");
 
                 output.println("TE HAS DESCONECTADO");
-
             }
+
 
             else if(command.startsWith("LIST")){
                 String userList = users.getUserList();

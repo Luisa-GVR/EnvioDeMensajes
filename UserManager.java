@@ -42,6 +42,11 @@ public class UserManager {
         }
     }
 
+    public boolean userExists(String userName) {
+        return connections.containsKey(userName);
+    }
+
+
     public synchronized String getUserList() {
         return String.join(", ", connections.keySet());
     }
