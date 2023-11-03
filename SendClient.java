@@ -11,7 +11,7 @@ public class SendClient {
     public static final String CLASS_NAME = SendClient.class.getSimpleName();
     public static final Logger LOGGER = Logger.getLogger(CLASS_NAME);
 
-    public static final int PORT = 1717;
+    public static final int PORT = 1818;
 
     public static void main(String[] args) {
 
@@ -22,7 +22,7 @@ public class SendClient {
             System.err.println(
                     "Usage: java SendClient <host name> <port number>");
             hostName = "localhost";
-            portNumber = 1717;
+            portNumber = 1818;
             // System.exit(1);
         } else {
             hostName = args[0];
